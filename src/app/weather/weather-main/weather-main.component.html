@@ -1,0 +1,36 @@
+
+<mat-card class="main">
+  <form (submit)="onAdd(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input matInput
+      type="text"
+      ngModel
+      name="city"
+      required
+      placeholder="enter your city name "
+      #city="ngModel">
+      <mat-error *ngIf="city.invalid">enter a city</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="warn" type="submit">GET WEATHER</button>
+  </form>
+  </mat-card >
+    <div  *ngIf="clicked"> 
+      <mat-card id="divWeatherMain">
+      <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
+          <i class="fas fa-3x fa-sun sun"></i>  
+      </div>   
+      <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
+          <i class="fas fa-3x fa-moon moon"></i>  
+      </div>   
+      <div class="weatherWidgetRow cloudDiv">
+          <i class="fas fa-cloud fa-3x cloud"></i>
+      </div>
+      <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">{{WeatherData.temp_celcius}}°</div>
+      <div class="weatherWidgetRow" style="font-size: 12px;">{{WeatherData.temp_min}}° / {{WeatherData.temp_max}}°</div>
+      <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{WeatherData.temp_feels_like}}°</div>
+      <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{WeatherData.name}}</div>
+      <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{WeatherData.main.humidity}}%</div>
+      <div class="weatherWidgetRow" style="font-size: 32px;">{{month + '/' + day + '/' + year}}</div>
+
+  </mat-card>
+    </div>
