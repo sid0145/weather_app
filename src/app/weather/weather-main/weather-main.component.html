@@ -14,7 +14,7 @@
     <button mat-raised-button color="warn" type="submit">GET WEATHER</button>
   </form>
   </mat-card >
-    <div  *ngIf="clicked"> 
+    <div  *ngIf="clicked && WeatherData.cod===200"> 
       <mat-card id="divWeatherMain">
       <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
           <i class="fas fa-3x fa-sun sun"></i>  
@@ -31,6 +31,5 @@
       <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{WeatherData.name}}</div>
       <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{WeatherData.main.humidity}}%</div>
       <div class="weatherWidgetRow" style="font-size: 32px;">{{month + '/' + day + '/' + year}}</div>
-
   </mat-card>
     </div>

@@ -25,10 +25,12 @@ export class WeatherMainComponent implements OnInit {
     .then((responseData)=>{
       if(responseData.cod===200){
         console.log(responseData)
-      this.setWeatherData(responseData);
+        this.setWeatherData(responseData);
       }else{
-        alert('city not found!')
-        return true;
+        alert('city not found!');
+        form.reset()
+        this.setWeatherData(responseData);
+        return false;
       }
       this.clicked=true;
 
